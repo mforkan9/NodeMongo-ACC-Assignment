@@ -20,7 +20,7 @@ app.use('/', userRouter)
 
 
 app.get('/', (req, res) => {
-   res.render('home.ejs')
+   res.render('./Views/home.ejs')
 })
 
 

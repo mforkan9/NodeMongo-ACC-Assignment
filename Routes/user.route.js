@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
         }
         // console.log(profile)
-        res.render('home.ejs', {
+        res.render('../Views/home.ejs', {
             user: profile,
             data: datas.length,
             allData: '',
@@ -40,7 +40,7 @@ router.get('/allData', (req, res) => {
 
         }
         //console.log('all data....',allData)
-        res.render('home.ejs', {
+        res.render('../Views/home.ejs', {
             allData: allData,
             data: '',
             user: '',
@@ -100,7 +100,7 @@ router.get('/update/:id', (req, res) => {
         const dar = datas.find(ps => ps.id === Number(req.params.id))
         findData.push(dar)
 
-        res.render('home.ejs', {
+        res.render('../Views/home.ejs', {
             findUser: findData,
             user: '',
             allData: '',
