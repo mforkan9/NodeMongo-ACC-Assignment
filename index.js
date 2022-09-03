@@ -5,8 +5,11 @@ const port = process.env.PORT || 8000
 const userRouter = require('./Routes/user.route')
 const fs = require('fs')
 const bodyParser = require('body-parser')
+var ejs = require('ejs');
 
 app.set('view engine','ejs')
+app.engine('ejs', require('ejs').__express);
+
 app.use(express.json())
 
 app.use(bodyParser.urlencoded({ extended: false }))
