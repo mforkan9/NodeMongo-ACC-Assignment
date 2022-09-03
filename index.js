@@ -5,6 +5,7 @@ const port = process.env.PORT || 8000
 const userRouter = require('./Routes/user.route')
 const fs = require('fs')
 const bodyParser = require('body-parser')
+const path = require('path')
 var ejs = require('ejs');
 
 app.set('view engine','ejs')
@@ -20,7 +21,7 @@ app.use('/', userRouter)
 
 
 app.get('/', (req, res) => {
-   res.render('./Views/home.ejs')
+   res.render(path.resolve(__dirname,'./home.ejs'))
 })
 
 

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs')
 const path = require('path')
-//let findData = []
+
 
 router.get('/', (req, res) => {
     fs.readFile(path.resolve(__dirname, '../MOCK_DATA.json'), (err, data) => {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
         }
         // console.log(profile)
-        res.render('../Views/home.ejs', {
+        res.render(path.resolve(__dirname,'../home.ejs'), {
             user: profile,
             data: datas.length,
             allData: '',
@@ -40,7 +40,7 @@ router.get('/allData', (req, res) => {
 
         }
         //console.log('all data....',allData)
-        res.render('../Views/home.ejs', {
+        res.render(path.resolve(__dirname,'../home.ejs'), {
             allData: allData,
             data: '',
             user: '',
@@ -100,7 +100,7 @@ router.get('/update/:id', (req, res) => {
         const dar = datas.find(ps => ps.id === Number(req.params.id))
         findData.push(dar)
 
-        res.render('../Views/home.ejs', {
+        res.render(path.resolve(__dirname,'../home.ejs'), {
             findUser: findData,
             user: '',
             allData: '',
